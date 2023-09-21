@@ -12,3 +12,16 @@ export interface Product {
 }
 
 export type ProductForm = Omit<Product,'id'>
+
+export interface LoginForm {
+    username: string;
+    password: string;
+}
+
+export interface LoginResponse {
+    email: string;
+    firstName: string;
+    lastName: string;
+    username: string;
+    token: string;
+}

@@ -1,7 +1,7 @@
 import AppProvider from './Provider/AppProvider'
 // import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home, Product, Profile, ProductDetail, ProductEdit, ProductNew } from './pages'
+import { Home, Product, Profile, ProductDetail, ProductEdit, ProductNew, Login } from './pages'
 import { PublicLayout, AnotherLayout } from './layouts'
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
       children: [
         {
           path: '/login',
-          element: <>login page</>
+          element: <Login />
         },
         {
           path: '/register',
