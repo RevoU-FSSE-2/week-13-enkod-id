@@ -1,7 +1,7 @@
 import AppProvider from './Provider/AppProvider'
 // import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home, Product, Profile, ProductDetail } from './pages'
+import { Home, Product, Profile, ProductDetail, ProductEdit, ProductNew } from './pages'
 import { PublicLayout, AnotherLayout } from './layouts'
 
 function App() {
@@ -21,6 +21,14 @@ function App() {
         {
           path: '/product/:id',
           element: <ProductDetail />
+        },
+        {
+          path: '/product/new',
+          element: <ProductNew />
+        },
+        {
+          path: '/product/edit/:id',
+          element: <ProductEdit />
         },
         {
           path: '/profile',

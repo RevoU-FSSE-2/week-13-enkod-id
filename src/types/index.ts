@@ -10,3 +10,5 @@ export interface Product {
     title: string;
     price: number;
 }
+
+export type ProductForm = Omit<Product,'id'>
