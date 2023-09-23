@@ -3,6 +3,9 @@ import AppProvider from './Provider/AppProvider'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home, Product, Profile, ProductDetail, ProductEdit, ProductNew, Login } from './pages'
 import { PublicLayout, AnotherLayout } from './layouts'
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient()
 
 function App() {
 
@@ -64,9 +67,11 @@ function App() {
     //     </Routes>
     //   </AppProvider>
     // </BrowserRouter>
-    <AppProvider>
-      <RouterProvider router={router}/>
-    </AppProvider>
+    <QueryClientProvider client={queryClient}>
+      <AppProvider>
+        <RouterProvider router={router}/>
+      </AppProvider>
+    </QueryClientProvider>
   )
 }
 
