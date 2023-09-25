@@ -15,13 +15,27 @@ const items: MenuProps['items'] = [
         label: 'Profile',
         key: '/profile'
     },
+    {
+        label: 'Signout',
+        key: '/signout'
+    }
 ]
 
 const Navbar = () => {
 
     const navigate = useNavigate();
 
+    const handleLogOut = () => {
+        localStorage.removeItem('token')
+        window.location.replace('/login')
+    }
+
     const onClick: MenuProps['onClick'] = (e) => {
+        if(e.key === '/signout') {
+            handleLogOut()
+
+            return
+        }
         navigate(e.key)
     };
 
