@@ -29,6 +29,7 @@ const ProductForm = ({ onSubmit, product } : Props) => {
                         value={formMik.values.title} 
                         onChange={formMik.handleChange('title')}
                         status={formMik.errors.title && 'error'}
+                        placeholder={'Masukan nama produk'}
                     />
                     {formMik.errors.title && (
                         <Typography.Paragraph>{formMik.errors.title}</Typography.Paragraph>
@@ -40,6 +41,7 @@ const ProductForm = ({ onSubmit, product } : Props) => {
                         value={formMik.values.price} 
                         onChange={formMik.handleChange('price')}
                         status={formMik.errors.price && 'error'}
+                        placeholder={'Masukan harga produk'}
                     />
                     {formMik.errors.price && (
                         <Typography.Paragraph>{formMik.errors.price}</Typography.Paragraph>
