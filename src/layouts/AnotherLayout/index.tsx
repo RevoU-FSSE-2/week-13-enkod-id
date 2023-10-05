@@ -4,7 +4,7 @@ const AnotherLayout = () => {
 
     return (
         <div>
-            <div>Another Layout</div>
+            <div></div>
             <Outlet/>
         </div>
     )

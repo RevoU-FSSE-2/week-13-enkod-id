@@ -12,6 +12,10 @@ const items: MenuProps['items'] = [
         key: '/product'
     },
     {
+        label: 'Category',
+        key: '/category'
+    },
+    {
         label: 'Profile',
         key: '/profile'
     },

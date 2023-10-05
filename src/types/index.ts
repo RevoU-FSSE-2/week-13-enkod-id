@@ -1,20 +1,26 @@
 export interface GetProductResponse {
     products: Product[];
-    total: number;
-    skip: number;
-    limit: number;
+    current_page: number;
+    total_item: number;
+    total_page: number;
 }
 
 export interface Product {
     id: number;
-    title: string;
-    price: number;
+    name: string;
+    is_active: string;
+}
+
+export interface Category {
+    id: number;
+    name: string;
+    
 }
 
 export type ProductForm = Omit<Product,'id'>
 
 export interface LoginForm {
-    username: string;
+    email: string;
     password: string;
 }
 
@@ -25,3 +31,22 @@ export interface LoginResponse {
     username: string;
     token: string;
 }
+
+export interface RegisterForm {
+    name: string;
+    email: string;
+    password: string;
+}
+
+export interface GetRegisterResponse {
+    name: string;
+    email: string;
+    password: string;
+}
+
+export interface GetCategoryResponse {
+    name: string;
+    token: string;
+    
+}
+

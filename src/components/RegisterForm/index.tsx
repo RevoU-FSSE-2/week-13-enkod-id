@@ -1,33 +1,47 @@
 import { Button, Card, Input, Typography, Col, Row } from "antd"
 import { useFormik } from "formik"
-import { LoginForm as LoginFormProps } from "../../types"
-import { initialValues, validationSchema } from "./loginFormSchema"
-import { useNavigate } from "react-router-dom"
+import { RegisterForm as RegisterFormProps } from "../../types"
+import { initialValues, validationSchema } from "./registerFormScheme"
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
-    onSubmit: (values: LoginFormProps) => void
+    onSubmit: (values: RegisterFormProps) => void
 }
 
-const LoginForm = ({ onSubmit } : Props) => {
+const RegisterForm = ({ onSubmit } : Props) => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (values: LoginFormProps) => {
+    const handleSubmit = (values: RegisterFormProps) => {
         onSubmit(values)
     }
 
     const formMik = useFormik({
+        
         initialValues: initialValues,
         onSubmit: handleSubmit,
         validationSchema: validationSchema
+       
     })
 
     return (
         <>
         <Row justify="center">  
         <Col span={6} offset={6}>
-        <Card title={"Login Page"} bordered style={{ width: 350 }}>
+        <Card title={"Register Page"} bordered style={{ width: 350 }}>
             <form onSubmit={formMik.handleSubmit}>
+                <div>
+                    <Typography.Paragraph>{'Name'}</Typography.Paragraph>
+                    <Input name={'name'}
+                        value={formMik.values.name} 
+                        onChange={formMik.handleChange('name')}
+                        status={formMik.errors.name && 'error'}
+                        placeholder={'Enter name'}
+                    />
+                    {formMik.errors.name && (
+                        <Typography.Paragraph>{formMik.errors.name}</Typography.Paragraph>
+                    )}
+                </div>
                 <div>
                     <Typography.Paragraph>{'Email'}</Typography.Paragraph>
                     <Input name={'email'}
@@ -36,8 +50,8 @@ const LoginForm = ({ onSubmit } : Props) => {
                         status={formMik.errors.email && 'error'}
                         placeholder={'Enter email'}
                     />
-                    {formMik.errors.username && (
-                        <Typography.Paragraph>{formMik.errors.username}</Typography.Paragraph>
+                    {formMik.errors.name && (
+                        <Typography.Paragraph>{formMik.errors.email}</Typography.Paragraph>
                     )}
                 </div>
                 <div>
@@ -53,10 +67,10 @@ const LoginForm = ({ onSubmit } : Props) => {
                         <Typography.Paragraph>{formMik.errors.password}</Typography.Paragraph>
                     )}
                 </div>
-                <Button type={'primary'} htmlType={"submit"}>Login</Button>
+                <Button type={'primary'} htmlType={"submit"}>Register</Button>
             </form>
             <br></br>
-            <Button type={'primary'} onClick={() => navigate('/register')}>Register</Button>
+            <Button type={'primary'} onClick={() => navigate('/login')}>Login</Button>
 
         </Card>
         </Col>
@@ -66,4 +80,4 @@ const LoginForm = ({ onSubmit } : Props) => {
     )
 }
 
-export default LoginForm
+export default RegisterForm

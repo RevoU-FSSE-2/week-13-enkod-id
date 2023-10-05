@@ -1,7 +1,7 @@
 import AppProvider from './Provider/AppProvider'
 // import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home, Product, Profile, ProductDetail, ProductEdit, ProductNew, Login } from './pages'
+import { Home, Product, Profile, ProductDetail, ProductEdit, ProductNew, Login, Register, Category } from './pages'
 import { PublicLayout, AnotherLayout } from './layouts'
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -34,6 +34,11 @@ function App() {
           element: <ProductEdit />
         },
         {
+          path: '/category',
+          element: <Category />
+        },
+
+        {
           path: '/profile',
           element: <Profile />
         }
@@ -48,7 +53,7 @@ function App() {
         },
         {
           path: '/register',
-          element: <>register page</>
+          element: <Register />
         }
       ]
     }

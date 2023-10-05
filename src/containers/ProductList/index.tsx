@@ -68,14 +68,10 @@ const ProductList = () => {
         },
         {
             title: 'Name',
-            dataIndex: 'title',
-            key: 'title',        
+            dataIndex: 'name',
+            key: 'name',        
         },
-        {
-            title: 'Price',
-            dataIndex: 'price',
-            key: 'price',
-        },
+       
         {
             title: 'Action',
             key: 'action',
