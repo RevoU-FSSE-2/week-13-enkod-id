@@ -1,20 +1,20 @@
 import { GetProductResponse, ProductForm, Product, GetRegisterResponse, GetCategoryResponse, RegisterForm } from '../types'
 
 export const getProductList = async (): Promise<GetProductResponse>  => {
-    const fetching = await fetch('https://mock-api.arikmpt.com/api/category');
+    const fetching = await fetch('localhost:5000/products');
 
     return fetching.json()
 }
 
 export const getCategoryList = async (): Promise<GetCategoryResponse>  => {
-    const fetching = await fetch('https://dummyjson.com/products');
+    const fetching = await fetch('localhost:5000/products');
 
     return fetching.json()
 }
 
 export const removeProduct = async (id?: number): Promise<void> => {
     try {
-        const fetching = await fetch(`https://dummyjson.com/products/${id}`, {
+        const fetching = await fetch(`localhost:5000/products/${id}`, {
             method: 'DELETE'
         })
 
@@ -27,7 +27,7 @@ export const removeProduct = async (id?: number): Promise<void> => {
 
 export const addProduct = async (body: ProductForm) => {
     try {
-        const fetching = await fetch('https://dummyjson.com/products/add', {
+        const fetching = await fetch('localhost:5000/products/add', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json' 
@@ -44,7 +44,7 @@ export const addProduct = async (body: ProductForm) => {
 
 export const addRegister = async (body: RegisterForm) => {
     try {
-        const fetching = await fetch('https://mock-api.arikmpt.com/api/user/register', {
+        const fetching = await fetch('localhost:5000/v1/auth/register', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json' 
